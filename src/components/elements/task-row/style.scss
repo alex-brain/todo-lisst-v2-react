@@ -1,0 +1,30 @@
+@import '../../../theme/variables';
+
+.TaskRow{
+  display: flex;
+  width: 100%;
+  height: 60px;
+
+  &__cell {
+    padding: 10px;
+    border-right: 1px solid $grayLight;
+    border-bottom: 1px solid $grayLight;
+    box-sizing: border-box;
+
+    &_theme {
+      &_sm {
+        width: 10%;
+      }
+      &_md {
+        width: 15%;
+      }
+      &_bg {
+        width: 35%;
+      }
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
