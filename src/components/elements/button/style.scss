@@ -1,3 +1,5 @@
+@import '../../../theme/variables';
+
 .Button {
   padding: 8px 10px;
   display: inline-block;
@@ -12,7 +14,7 @@
   text-decoration: none;
   letter-spacing: -0.01em;
   user-select: none;
-  border: 2px solid #000;
+  border: 2px solid $black;
   border-radius: 5px;
   cursor: pointer;
 
@@ -32,16 +34,16 @@
 
   &_theme {
     &_green {
-      color: #000000;
-      background-color: #84ffa6;
+      color: $black;
+      background-color: $lightGreen;
     }
     &_red {
-      color: #000000;
+      color: $black;
       background-color: #ff5458;
     }
     &_blue {
-      color: #FFFFFF;
-      background-color: #007bff;
+      color: $white;
+      background-color: $lightBlue;
       border: none;
     }
   }

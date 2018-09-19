@@ -14,8 +14,10 @@ class CreateTaskContainer extends Component {
   };
 
   onSubmit = (data) => {
-    this.props.dispatch(actions.formCreateTask.submit(data));
-    this.props.history.push('/');
+    const submitSuccess = this.props.dispatch(actions.formCreateTask.submit(data));
+    if (submitSuccess) {
+      this.props.history.push('/');
+    }
   };
 
   onReset = () => {

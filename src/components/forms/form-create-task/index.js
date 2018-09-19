@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { LayoutField } from '../../layouts';
 import { Input, Textarea, Select, Button } from '../../elements';
 import './style.scss';
@@ -24,10 +25,6 @@ class FormCreateTask extends Component {
 
   onCreateTaskBtnClick = () => {
     this.props.onSubmit(this.props.data);
-  };
-
-  onResetBtnClick = () => {
-    this.props.onReset();
   };
 
   render() {
@@ -72,6 +69,9 @@ class FormCreateTask extends Component {
           />
         </div>
         <div className="FormCreateTask__buttons">
+          <div className="FormCreateTask__open-task-list-link">
+            <Link to={'/'}>Вернуться к списку задач</Link>
+          </div>
           <div className="FormCreateTask__reset-btn">
             <Button onClick={onReset}>
               Очистить

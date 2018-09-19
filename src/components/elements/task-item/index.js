@@ -10,10 +10,28 @@ class TaskItem extends Component {
     description: PropTypes.string,
     active: PropTypes.bool,
     priority: PropTypes.string,
+    dueTime: PropTypes.string,
+    executionTime: PropTypes.string,
+  };
+
+  getFormattedDateTime = (dateTime) => {
+    const date = new Date(dateTime);
+    const formatter =  new Intl.DateTimeFormat("ru", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric"
+    });
+    return formatter.format(date);
   };
 
   render() {
-    const { title, description, active, priority } = this.props;
+    const { title, description, active, priority, dueTime, executionTime } = this.props;
+    const formattedDueTime = dueTime ? this.getFormattedDateTime(dueTime) : '';
+    const formattedExecutionTime= executionTime ? this.getFormattedDateTime(executionTime) : '';
+
     return (
       <div className="TaskItem">
         <TaskRow
@@ -21,7 +39,9 @@ class TaskItem extends Component {
             active,
             title,
             description,
-            priority
+            priority,
+            formattedDueTime,
+            formattedExecutionTime
           ]}
         />
       </div>

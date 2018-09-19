@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { List } from '../../lists';
 import { TaskItem, TaskRow } from '../index';
 import './style.scss';
@@ -17,6 +17,8 @@ class TaskList extends Component {
       description={item.description}
       priority={item.priority}
       active={item.active}
+      dueTime={item.dueTime}
+      executionTime={item.executionTime}
     />
   );
 
@@ -30,7 +32,10 @@ class TaskList extends Component {
             'Название',
             'Описание',
             'Важность',
+            'Ожидаемое время выполнения',
+            'Время закрытия задачи',
           ]}
+          theme={'header'}
         />
         <List
           items={items}

@@ -7,7 +7,8 @@ const initState = {
     description: '',
     active: true,
     priority: 'обычная',
-    dueTime: ''
+    dueTime: '',
+    executionTime: ''
   },
   options: {
     priority: [
@@ -42,7 +43,8 @@ export default reducer(initState, {
         description: '',
         active: true,
         priority: 'обычная',
-        dueTime: ''
+        dueTime: '',
+        executionTime: ''
       }
     };
   },

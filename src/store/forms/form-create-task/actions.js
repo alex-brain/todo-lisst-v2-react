@@ -27,11 +27,13 @@ const formCreateTaskActions = {
           title: 'Название задачи обязательно для ввода!',
         };
         dispatch({type: types.SUBMIT_FAILURE, payload: errors});
+        return false;
       } else {
         dispatch({type: types.SUBMIT_SUCCESS});
         const id = Math.round(Math.random() * 1000000);
         dispatch(tasks.create({id, ...data}));
         dispatch(formCreateTaskActions.reset());
+        return true;
       }
     };
   }

@@ -3,7 +3,7 @@
 .TaskRow{
   display: flex;
   width: 100%;
-  height: 60px;
+  min-height: 60px;
 
   &__cell {
     padding: 10px;
@@ -14,12 +14,17 @@
     &_theme {
       &_sm {
         width: 10%;
+        font-size: 12px;
       }
       &_md {
-        width: 15%;
+        width: 20%;
       }
       &_bg {
-        width: 35%;
+        width: 30%;
+      }
+      &_header {
+        font-size: 16px;
+        font-weight: bold;
       }
     }
 
