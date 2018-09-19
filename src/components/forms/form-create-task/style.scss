@@ -1,0 +1,10 @@
+.FormCreateTask{
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__reset-btn {
+    margin-right: 20px;
+  }
+}

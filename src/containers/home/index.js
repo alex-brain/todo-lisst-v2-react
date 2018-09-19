@@ -16,7 +16,7 @@ class Home extends Component {
     const { tasks } = this.props;
     return (
       <div className="Home">
-        <TaskList items={tasks}/>
+        <TaskList items={tasks} onCre/>
       </div>
     );
   }

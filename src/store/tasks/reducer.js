@@ -9,21 +9,21 @@ const initState = {
       title: 'task 1',
       description: 'description 1',
       active: true,
-      priority: 'normal'
+      priority: 'обычная'
     },
     {
       id: 2,
       title: 'task 2',
       description: 'description 2',
       active: false,
-      priority: 'high'
+      priority: 'важная'
     },
     {
       id: 3,
       title: 'task 3',
       description: 'description 3',
       active: true,
-      priority: 'highest'
+      priority: 'очень важная'
     }
   ]
 };
@@ -32,6 +32,16 @@ export default reducer(initState, {
   [types.INIT]: (state) => {
     return {
       ...state,
+    };
+  },
+
+  [types.CREATE]: (state, action) => {
+    return {
+      ...state,
+      list: [
+        ...state.list,
+        action.payload
+      ]
     };
   },
 });

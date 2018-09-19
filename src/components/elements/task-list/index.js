@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import { List } from '../../lists';
 import { TaskItem, TaskRow } from '../index';
 import './style.scss';
@@ -36,6 +37,9 @@ class TaskList extends Component {
           renderItem={this.renderItem}
           getItemId={item => item.id}
         />
+        <div className="TaskList__create-task-link">
+          <Link to={'/create'}>Новая задача</Link>
+        </div>
       </div>
     );
   }
