@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TaskRow } from '../index';
+import { TaskRow, Input } from '../index';
 import './style.scss';
 
 class TaskItem extends Component {
 
   static propTypes = {
-    title: PropTypes.string,
-    description: PropTypes.string,
-    active: PropTypes.bool,
-    priority: PropTypes.string,
-    dueTime: PropTypes.string,
-    executionTime: PropTypes.string,
+    data: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      completed: PropTypes.bool,
+      priority: PropTypes.string,
+      dueTime: PropTypes.string,
+      executionTime: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+    }),
+    onChangeTaskActive: PropTypes.func
   };
 
   getFormattedDateTime = (dateTime) => {
@@ -28,7 +31,8 @@ class TaskItem extends Component {
   };
 
   render() {
-    const { title, description, active, priority, dueTime, executionTime } = this.props;
+    const { data, onChangeTaskActive } = this.props;
+    const { title, description, completed, priority, dueTime, executionTime } = data;
     const formattedDueTime = dueTime ? this.getFormattedDateTime(dueTime) : '';
     const formattedExecutionTime= executionTime ? this.getFormattedDateTime(executionTime) : '';
 
@@ -36,7 +40,13 @@ class TaskItem extends Component {
       <div className="TaskItem">
         <TaskRow
           cells={[
-            active,
+            <Input
+              type={'checkbox'}
+              theme={'checkbox'}
+              value={completed}
+              checked={completed}
+              onChange={onChangeTaskActive(data)}
+            />,
             title,
             description,
             priority,

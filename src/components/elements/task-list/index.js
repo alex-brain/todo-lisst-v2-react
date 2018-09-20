@@ -9,16 +9,13 @@ class TaskList extends Component {
 
   static propTypes = {
     items: PropTypes.array,
+    onChangeTaskActive: PropTypes.func
   };
 
   renderItem = (item) => (
     <TaskItem
-      title={item.title}
-      description={item.description}
-      priority={item.priority}
-      active={item.active}
-      dueTime={item.dueTime}
-      executionTime={item.executionTime}
+      data={item}
+      onChangeTaskActive={this.props.onChangeTaskActive}
     />
   );
 

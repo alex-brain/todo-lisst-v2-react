@@ -3,29 +3,7 @@ import {types} from './actions';
 
 
 const initState = {
-  list: [
-    {
-      id: 1,
-      title: 'task 1',
-      description: 'description 1',
-      active: true,
-      priority: 'обычная'
-    },
-    {
-      id: 2,
-      title: 'task 2',
-      description: 'description 2',
-      active: false,
-      priority: 'важная'
-    },
-    {
-      id: 3,
-      title: 'task 3',
-      description: 'description 3',
-      active: true,
-      priority: 'очень важная'
-    }
-  ]
+  list: []
 };
 
 export default reducer(initState, {
@@ -42,6 +20,20 @@ export default reducer(initState, {
         ...state.list,
         action.payload
       ]
+    };
+  },
+
+  [types.UPDATE]: (state, action) => {
+    const updatedItem = action.payload;
+    const list = state.list.map(item => {
+      if (item.id === updatedItem.id) {
+        return updatedItem;
+      }
+      return item;
+    });
+    return {
+      ...state,
+      list
     };
   },
 });

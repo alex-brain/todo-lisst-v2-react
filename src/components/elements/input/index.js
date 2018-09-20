@@ -7,11 +7,12 @@ import './style.scss';
 class Input extends React.Component {
 
   static propTypes = {
-    value: PropTypes.node.isRequired,
+    value: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]).isRequired,
     type: PropTypes.string,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
     focused: PropTypes.bool,
+    checked: PropTypes.bool,
     disabled: PropTypes.bool,
     tabIndex: PropTypes.number,
     autocomplete: PropTypes.bool,
@@ -51,7 +52,7 @@ class Input extends React.Component {
   onBlur = () => this.props.onBlur();
 
   render() {
-    const {type, placeholder, required, focused, value, theme, disabled, tabIndex, autocomplete} = this.props;
+    const {type, placeholder, required, focused, value, theme, disabled, tabIndex, autocomplete, checked} = this.props;
 
     return (
       <div className={cn("Input", themes('Input', theme))}>
@@ -61,6 +62,7 @@ class Input extends React.Component {
           type={type}
           placeholder={placeholder}
           tabIndex={tabIndex}
+          checked={checked}
           disabled={disabled}
           required={required}
           autoFocus={focused}

@@ -20,6 +20,10 @@
   }
 
   &_theme {
+    &_checkbox {
+      height: 20px;
+      border: none;
+    }
     &_small {
       width: 192px;
       height: 24px;

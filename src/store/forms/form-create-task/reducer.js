@@ -5,7 +5,7 @@ const initState = {
   data: {
     title: '',
     description: '',
-    active: true,
+    completed: false,
     priority: 'обычная',
     dueTime: '',
     executionTime: ''
@@ -41,7 +41,7 @@ export default reducer(initState, {
       data: {
         title: '',
         description: '',
-        active: true,
+        completed: false,
         priority: 'обычная',
         dueTime: '',
         executionTime: ''
