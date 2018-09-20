@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Route, Router, Switch} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { LayoutPage } from '../../components/layouts';
-import { Home, CreateTaskContainer } from '../index';
+import { Home, CreateTaskContainer, UpdateTaskContainer } from '../index';
 
 class App extends Component {
 
@@ -18,6 +18,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact={true} component={Home}/>
             <Route path="/create" exact={true} component={CreateTaskContainer}/>
+            <Route path="/update/:id" exact={true} component={UpdateTaskContainer}/>
           </Switch>
         </Router>
       </LayoutPage>

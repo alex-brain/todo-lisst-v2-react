@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { TaskRow, Input } from '../index';
 import './style.scss';
 
@@ -32,7 +33,7 @@ class TaskItem extends Component {
 
   render() {
     const { data, onChangeTaskActive } = this.props;
-    const { title, description, completed, priority, dueTime, executionTime } = data;
+    const { title, description, completed, priority, dueTime, executionTime, id } = data;
     const formattedDueTime = dueTime ? this.getFormattedDateTime(dueTime) : '';
     const formattedExecutionTime= executionTime ? this.getFormattedDateTime(executionTime) : '';
 
@@ -47,11 +48,11 @@ class TaskItem extends Component {
               checked={completed}
               onChange={onChangeTaskActive(data)}
             />,
-            title,
-            description,
-            priority,
-            formattedDueTime,
-            formattedExecutionTime
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{title}</Link>,
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{description}</Link>,
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{priority}</Link>,
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{formattedDueTime}</Link>,
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{formattedExecutionTime}</Link>,
           ]}
         />
       </div>

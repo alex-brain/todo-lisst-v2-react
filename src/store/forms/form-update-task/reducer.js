@@ -28,14 +28,14 @@ export default reducer(initState, {
     };
   },
 
-  [types.FORM_CREATE_TASK_CHANGE]: (state, action) => {
+  [types.FORM_UPDATE_TASK_CHANGE]: (state, action) => {
     return {
       ...state,
       data: action.payload
     };
   },
 
-  [types.FORM_CREATE_TASK_RESET]: (state) => {
+  [types.FORM_UPDATE_TASK_RESET]: (state) => {
     return {
       ...state,
       data: {
@@ -49,14 +49,14 @@ export default reducer(initState, {
     };
   },
 
-  [types.FORM_CREATE_TASK_SUBMIT_SUCCESS]: (state) => {
+  [types.FORM_UPDATE_TASK_SUBMIT_SUCCESS]: (state) => {
     return {
       ...state,
       errors: {}
     };
   },
 
-  [types.FORM_CREATE_TASK_SUBMIT_FAILURE]: (state, action) => {
+  [types.FORM_UPDATE_TASK_SUBMIT_FAILURE]: (state, action) => {
     return {
       ...state,
       errors: action.payload

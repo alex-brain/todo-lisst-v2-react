@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { LayoutField } from '../../layouts';
-import { Input, Textarea, Select, Button } from '../../elements';
-import './style.scss';
+import { Input, Textarea, Select } from '../../elements';
 
-class FormCreateTask extends Component {
+class FormTask extends Component {
 
   static propTypes = {
     data: PropTypes.object,
     options: PropTypes.object,
     errors: PropTypes.object,
     onChange: PropTypes.func,
-    onSubmit: PropTypes.func,
-    onReset: PropTypes.func
+    buttons: PropTypes.node
   };
 
   onChange = name => {
@@ -23,15 +20,11 @@ class FormCreateTask extends Component {
     };
   };
 
-  onCreateTaskBtnClick = () => {
-    this.props.onSubmit(this.props.data);
-  };
-
   render() {
-    const { data, options, errors, onReset } = this.props;
+    const { data, options, errors, buttons } = this.props;
     return (
-      <div className="FormCreateTask">
-        <div className="FormCreateTask__fields">
+      <div className="FormTask">
+        <div className="FormTask__fields">
           <LayoutField
             label={'Название задачи'}
             input={<Input type="text" value={data.title} onChange={this.onChange('title')}/>}
@@ -68,24 +61,10 @@ class FormCreateTask extends Component {
             error={errors.dueTime}
           />
         </div>
-        <div className="FormCreateTask__buttons">
-          <div className="FormCreateTask__open-task-list-link">
-            <Link to={'/'}>Вернуться к списку задач</Link>
-          </div>
-          <div className="FormCreateTask__reset-btn">
-            <Button onClick={onReset}>
-              Очистить
-            </Button>
-          </div>
-          <div className="FormCreateTask__create-btn">
-            <Button theme={'green'} onClick={this.onCreateTaskBtnClick}>
-              Создать задачу
-            </Button>
-          </div>
-        </div>
+        {buttons}
       </div>
     );
   }
 }
 
-export default FormCreateTask;
+export default FormTask;

@@ -1,3 +1,7 @@
-.TaskItem{
+@import '../../../theme/variables';
 
+.TaskItem{
+  a {
+    color: $black;
+  }
 }

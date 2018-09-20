@@ -5,3 +5,5 @@ export {default as Select} from './select';
 export {default as TaskList} from './task-list';
 export {default as TaskItem} from './task-item';
 export {default as TaskRow} from './task-row';
+export {default as FormCreateTaskButtons} from './form-create-task-buttons';
+export {default as FormUpdateTaskButtons} from './form-update-task-buttons';

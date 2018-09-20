@@ -36,5 +36,14 @@ export default reducer(initState, {
       list
     };
   },
+
+  [types.DELETE]: (state, action) => {
+    const deletedItem = action.payload;
+    const list = state.list.filter(item => item.id !== deletedItem.id);
+    return {
+      ...state,
+      list
+    };
+  }
 });
 

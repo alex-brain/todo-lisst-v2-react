@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import * as actions from '../../store/actions';
-import { FormCreateTask } from '../../components/forms';
+import { FormTask } from '../../components/forms';
+import { FormCreateTaskButtons } from '../../components/elements';
 
 class CreateTaskContainer extends Component {
 
@@ -13,8 +14,8 @@ class CreateTaskContainer extends Component {
     dispatch: PropTypes.func
   };
 
-  onSubmit = (data) => {
-    const submitSuccess = this.props.dispatch(actions.formCreateTask.submit(data));
+  onSubmit = () => {
+    const submitSuccess = this.props.dispatch(actions.formCreateTask.submit(this.props.formCreateTask.data));
     if (submitSuccess) {
       this.props.history.push('/');
     }
@@ -32,13 +33,14 @@ class CreateTaskContainer extends Component {
     const { data, options, errors } = this.props.formCreateTask;
     return (
       <div className="CreateTaskContainer">
-        <FormCreateTask
+        <FormTask
           data={data}
           options={options}
           errors={errors}
           onChange={this.onChange}
           onSubmit={this.onSubmit}
           onReset={this.onReset}
+          buttons={<FormCreateTaskButtons onReset={this.onReset} onClick={this.onSubmit}/>}
         />
       </div>
     );

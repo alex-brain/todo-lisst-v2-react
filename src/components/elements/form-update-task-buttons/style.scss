@@ -1,10 +1,8 @@
 @import '../../../theme/variables';
 
-.FormCreateTask{
-  &__buttons {
-    display: flex;
-    justify-content: flex-end;
-  }
+.FormUpdateTaskButtons{
+  display: flex;
+  justify-content: flex-end;
 
   &__open-task-list-link {
     a {
