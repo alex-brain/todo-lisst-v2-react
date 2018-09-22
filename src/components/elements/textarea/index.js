@@ -25,11 +25,12 @@ export default class Textarea extends PureComponent {
   constructor(props) {
     super(props);
     this.defaultHeight = 0;
+    this.textarea = React.createRef();
   }
 
   componentDidMount() {
     this.changeHeight();
-    this.defaultHeight = this.textarea.style.height;
+    this.defaultHeight = this.textarea.current.style.height;
   }
 
   autoResize = () => {
@@ -37,7 +38,7 @@ export default class Textarea extends PureComponent {
   };
 
   changeHeight = () => {
-    this.textarea.style.height = this.textarea.scrollHeight + 2 + 'px';
+    this.textarea.current.style.height = this.textarea.current.scrollHeight + 2 + 'px';
   };
 
   onChange = (e) => {
@@ -46,7 +47,7 @@ export default class Textarea extends PureComponent {
   };
 
   onBlur = (e) => {
-    let textarea = this.textarea;
+    let textarea = this.textarea.current;
     let currentValue = textarea.value;
     textarea.value = '';
     textarea.style.height = this.defaultHeight;
@@ -67,7 +68,7 @@ export default class Textarea extends PureComponent {
         onBlur={this.onBlur}
         autoFocus={autoFocus}
         name={name}
-        ref={(item) => this.textarea = item}
+        ref={this.textarea}
       />
     );
   }

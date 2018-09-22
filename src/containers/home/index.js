@@ -54,7 +54,11 @@ class Home extends Component {
     const filteredTasks = this.getFilteredTasks();
     return (
       <div className="Home">
-        <TaskFilter onChangeTaskFilterPriority={this.onChangeTaskFilterPriority} data={taskFilter.data} options={priority} />
+        <TaskFilter
+          onChangeTaskFilterPriority={this.onChangeTaskFilterPriority}
+          data={taskFilter.data}
+          options={priority}
+        />
         <TaskList items={filteredTasks} onChangeTaskActive={this.onChangeTaskActive} />
       </div>
     );
