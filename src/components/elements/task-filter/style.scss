@@ -1,0 +1,14 @@
+.TaskFilter{
+  display: flex;
+  justify-content: center;
+
+  &__label {
+    margin-right: 20px;
+    font-weight: bold;
+  }
+
+  &__checkboxes {
+    display: flex;
+    justify-content: flex-start;
+  }
+}

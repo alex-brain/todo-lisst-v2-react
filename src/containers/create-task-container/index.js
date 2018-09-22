@@ -10,6 +10,7 @@ class CreateTaskContainer extends Component {
 
   static propTypes = {
     formCreateTask: PropTypes.object,
+    priority: PropTypes.array,
     history: PropTypes.object.isRequired,
     dispatch: PropTypes.func
   };
@@ -30,12 +31,13 @@ class CreateTaskContainer extends Component {
   };
 
   render() {
-    const { data, options, errors } = this.props.formCreateTask;
+    const { priority } =  this.props;
+    const { data, errors } = this.props.formCreateTask;
     return (
       <div className="CreateTaskContainer">
         <FormTask
           data={data}
-          options={options}
+          options={priority}
           errors={errors}
           onChange={this.onChange}
           onSubmit={this.onSubmit}
@@ -48,5 +50,6 @@ class CreateTaskContainer extends Component {
 }
 
 export default withRouter(connect(state => ({
-  formCreateTask: state.formCreateTask
+  formCreateTask: state.formCreateTask,
+  priority: state.priority.data,
 }))(CreateTaskContainer))

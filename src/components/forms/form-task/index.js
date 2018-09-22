@@ -7,7 +7,8 @@ class FormTask extends Component {
 
   static propTypes = {
     data: PropTypes.object,
-    options: PropTypes.object,
+    priority: PropTypes.object,
+    options: PropTypes.array,
     errors: PropTypes.object,
     onChange: PropTypes.func,
     buttons: PropTypes.node
@@ -43,7 +44,7 @@ class FormTask extends Component {
           <LayoutField
             label={'Важность задачи'}
             input={<Select
-              options={options.priority}
+              options={options}
               data={data.priority}
               onChange={this.onChange('priority')}
               theme={'short'}

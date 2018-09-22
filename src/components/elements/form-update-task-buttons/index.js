@@ -19,7 +19,7 @@ class FormUpdateTaskButtons extends Component {
           <Link to={'/'}>Вернуться к списку задач</Link>
         </div>
         <div className="FormUpdateTaskButtons__delete-btn">
-          <Button onClick={onDelete}>
+          <Button onClick={onDelete} theme={'red'}>
             Удалить задачу
           </Button>
         </div>

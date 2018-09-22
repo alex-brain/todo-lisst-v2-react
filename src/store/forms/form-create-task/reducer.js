@@ -10,13 +10,6 @@ const initState = {
     dueTime: '',
     executionTime: ''
   },
-  options: {
-    priority: [
-      'обычная',
-      'важная',
-      'очень важная'
-    ]
-  },
   errors: {}
 };
 

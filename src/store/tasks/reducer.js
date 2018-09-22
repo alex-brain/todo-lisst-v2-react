@@ -1,7 +1,6 @@
 import reducer from '../../utils/reducer';
 import {types} from './actions';
 
-
 const initState = {
   list: []
 };
